@@ -1,1 +1,1 @@
-"# PAINT.CO" 
+"# paint-co" 
