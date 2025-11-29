@@ -1,0 +1,695 @@
+/* ---------------------------
+        VARIABLES & GLOBAL RESET
+        --------------------------- */
+:root {
+    --bg: #f9f9f9;
+    --accent: #ffcc00;
+    /* Yellow */
+    --accent-hover: #ffb700;
+    --dark: #0f1113;
+    --card-white: #ffffff;
+    --muted: #9aa0a6;
+    --radius: 20px;
+    --shadow-1: 0 6px 18px rgba(2, 6, 23, 0.10);
+    --shadow-2: 0 12px 40px rgba(2, 6, 23, 0.16);
+    --card-border-light: #e5e8ec;
+    /* for stacked cards */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    font-family: "Arial", sans-serif;
+    background-color: var(--bg);
+    color: #111;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.45;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px;
+}
+
+/* HEADER */
+.header-container {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.logo img {
+    width: 120px;
+    height: auto;
+    display: block
+}
+
+/* flag dropdown */
+.flag-dropdown {
+    position: relative
+}
+
+.flag-btn {
+    background: none;
+    border: 0;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer
+}
+
+.flag-btn img {
+    width: 40px;
+    height: auto;
+    border-radius: 4px;
+    display: block
+}
+
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 52px;
+    width: 180px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: var(--shadow-1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: none;
+    z-index: 40;
+}
+
+.dropdown-menu .option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    cursor: pointer;
+}
+
+.dropdown-menu .option img {
+    width: 20px;
+    height: auto
+}
+
+.dropdown-menu .option:hover {
+    background: #f6f6f6
+}
+
+hr {
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    margin-top: 9px
+}
+
+/* TOP CONTENT */
+.top-content {
+    text-align: center;
+    padding: 30px 8px 14px
+}
+
+.top-content h3 {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 8px
+}
+
+.top-content h1 {
+    font-size: 28px;
+    color: #222;
+    margin-bottom: 14px
+}
+
+.tick-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 18px;
+    margin: 0 auto 18px;
+    max-width: 820px
+}
+
+.tick-list p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #444;
+    font-size: 15px
+}
+
+.tick-list img {
+    width: 18px;
+    height: auto;
+    display: block
+}
+
+.btn-primary button {
+    background: var(--accent);
+    border: 0;
+    padding: 10px 22px;
+    border-radius: 24px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #111;
+    transition: transform .18s ease, background .18s ease;
+}
+
+.btn-primary button:hover {
+    transform: scale(1.03);
+    background: var(--accent-hover)
+}
+
+/* HERO */
+.hero-box {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    background: #FFEB3B;
+    border-radius: 20px;
+    padding: 26px;
+    box-shadow: var(--shadow-1);
+    margin: 20px 0;
+}
+
+.hero-left {
+    flex: 1
+}
+
+.hero-left h1 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    color: #222
+}
+
+.hero-left p {
+    color: #444;
+    margin-bottom: 12px
+}
+
+.hero-right {
+    flex: 1;
+    text-align: right
+}
+
+.hero-right img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: inline-block
+}
+
+/* FEATURES GRID 1 (Dark Section) */
+.features-grid-wrapper {
+    padding: 24px 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hero-feature {
+    width: 100%;
+    max-width: 1200px;
+    background: linear-gradient(180deg, rgba(2, 6, 23, 0.82), rgba(14, 14, 14, 0.95));
+    border-radius: 24px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    /* Mobile stack */
+    gap: 22px;
+    color: #fff;
+    box-shadow: var(--shadow-2);
+}
+
+/* Panel on top for mobile */
+.hero-feature .panel {
+    order: -1;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Mobile stack */
+    gap: 18px
+}
+
+.card {
+    background: var(--card-white);
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: var(--shadow-1);
+    color: #111;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 140px;
+}
+
+.card.yellow-variant {
+    background: linear-gradient(180deg, #f6c200, #eeb403);
+    box-shadow: 0 12px 34px rgba(238, 180, 3, 0.08)
+}
+
+.card .icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.04);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden
+}
+
+.card .icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.number {
+    font-size: 28px;
+    font-weight: 800
+}
+
+.title {
+    font-weight: 700
+}
+
+.desc {
+    color: var(--muted);
+    font-size: 13px
+}
+
+.panel {
+    padding: 6px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center
+}
+
+.panel .kicker {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 13px
+}
+
+.panel h1 {
+    font-size: 24px;
+    margin: 0
+}
+
+.panel p.lead {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px
+}
+
+.btn-secondary {
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    background: #fff;
+    color: #111;
+    font-weight: 700;
+    box-shadow: var(--shadow-1);
+    transition: all 0.25s ease;
+}
+
+.btn-secondary:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* ---------------------------
+        TESTIMONIAL, BOX, FOOTER (Separate Cards)
+        --------------------------- */
+.section-card {
+    width: 100%;
+    max-width: 1200px;
+    margin: 22px auto;
+    background: var(--card-white);
+    border-radius: 16px;
+    box-shadow: var(--shadow-1);
+    padding: 20px;
+}
+
+/* testimonial-wrapper specifics */
+.testimonial-wrapper {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0;
+}
+
+.testimonial-box {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.testimonial-left img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    flex-shrink: 0
+}
+
+.testimonial-right h2 {
+    font-size: 20px;
+    margin-bottom: 8px
+}
+
+.testimonial-right p {
+    color: #444;
+    margin-bottom: 8px
+}
+
+.testimonial-right .small {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    color: #111
+}
+
+.testimonial-right .small img {
+    width: 48px;
+    height: auto
+}
+
+/* the .box (leftside) card */
+.box {
+    margin: 22px 0;
+    background: #fff;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: var(--shadow-1);
+}
+
+.leftside h2 {
+    font-size: 20px;
+    margin-bottom: 10px
+}
+
+.box .tick-list {
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 680px;
+    margin: 0;
+    /* Resetting center margin */
+}
+
+.box p {
+    color: #444;
+    margin: 6px 0;
+    font-size: 15px
+}
+
+/* FOOTER CARD */
+.fotter {
+    margin: 24px 0 60px;
+    background: #111;
+    color: #fff;
+    border-radius: 20px;
+    padding: 22px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4);
+}
+
+.fotter h2 {
+    font-size: 20px;
+    margin-bottom: 6px
+}
+
+.fotter p {
+    margin: 6px 0 12px;
+    color: #e1e1e1
+}
+
+.fotter hr {
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    margin: 14px 0
+}
+
+.bottom-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    flex-wrap: wrap
+}
+
+.copy {
+    font-size: 13px;
+    opacity: 0.8
+}
+
+.btn {
+    background: white;
+    color: #111;
+    padding: 10px 18px;
+    border-radius: 20px;
+    border: 0;
+    cursor: pointer
+}
+
+.links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px
+}
+
+.links a:hover {
+    text-decoration: underline
+}
+
+/* ---------------------------
+        FEATURES GRID 2 (Stacked Card Section)
+        --------------------------- */
+.stacked-card-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 40px 18px;
+    /* Added horizontal padding */
+    background: #f9f9f9;
+    max-width: 1200px;
+    margin: 40px auto;
+    /* Added margin to separate from other sections */
+}
+
+
+.top-heading-box .box-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.top-heading-box .box-subtitle {
+    text-align: center;
+    font-size: 17px;
+    color: #4b5a6a;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    /* center + spacing */
+    line-height: 1.6;
+}
+
+/* CARD BASE STYLE */
+.feature-card {
+    background: rgb(249, 246, 246);
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    position: relative;
+    border: 3px solid var(--card-border-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Aligns content to the top */
+    min-height: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* WIDE FIRST CARD */
+.wide-card {
+    grid-column: span 3;
+    padding: 40px;
+    color: rgb(28, 26, 26);
+    border-radius: 16px;
+    /* No hover lift for wide card */
+    transform: none;
+}
+
+.wide-card:hover {
+    transform: none;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* HEADINGS */
+.card-heading {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+/* TEXT */
+.card-text {
+    font-size: 15px;
+    color: #4b5a6a;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    flex-grow: 1;
+    /* Pushes icon down */
+}
+
+/* FIRST CARD BUTTON */
+.card-button {
+    background: #fff;
+    color: #0e1a2b;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 18px;
+    transition: background 0.3s ease;
+}
+
+.card-button:hover {
+    background: var(--accent);
+}
+
+/* PLUS ICON FOR OTHER CARDS */
+.plus-icon {
+    font-size: 36px;
+    font-weight: bold;
+    color: #f5c63a;
+    position: absolute;
+    bottom: 16px;
+    right: 20px;
+}
+
+/* ---------------------------
+        RESPONSIVE MEDIA QUERIES
+        --------------------------- */
+
+/* Tablet/Medium Screens: 2 Columns for stacked-card-section */
+@media (max-width: 992px) {
+    .stacked-card-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .wide-card {
+        grid-column: span 2;
+    }
+}
+
+/* Mobile Screens: 1 Column for stacked-card-section */
+@media (max-width: 600px) {
+    .stacked-card-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .wide-card {
+        grid-column: span 1;
+    }
+}
+
+/* Combined Media Queries */
+/* Tablet (768px and up) */
+@media screen and (min-width: 768px) {
+    .hero-feature {
+        flex-direction: row;
+        /* Side by side for dark feature section */
+    }
+
+    .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-left h1 {
+        font-size: 1.9rem
+    }
+
+    .panel h1 {
+        font-size: 28px
+    }
+
+    .testimonial-box {
+        padding: 26px
+    }
+
+    .testimonial-left img {
+        width: 120px;
+        height: 120px
+    }
+}
+
+/* Mobile (Max 740px) */
+@media screen and (max-width: 740px) {
+    .hero-box {
+        flex-direction: column;
+        text-align: center
+    }
+
+    .hero-right {
+        text-align: center
+    }
+
+    .hero-right img {
+        max-width: 82%
+    }
+
+    .testimonial-box {
+        flex-direction: column;
+        text-align: center;
+        gap: 14px
+    }
+}
+
+/* Smallest Devices (Max 420px) */
+@media screen and (max-width:420px) {
+    .top-content h1 {
+        font-size: 22px
+    }
+
+    .tick-list {
+        gap: 8px 10px
+    }
+
+    .btn-primary button {
+        padding: 9px 16px;
+        font-size: 14px
+    }
+}
